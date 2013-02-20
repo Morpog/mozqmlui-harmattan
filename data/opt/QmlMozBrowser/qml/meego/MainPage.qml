@@ -18,7 +18,6 @@ FocusScope {
     property variant viewport
     
     signal pageTitleChanged(string title)
-    signal setClipboard(string text)
     
     //x: 0; y: 0
     //width: 800; height: 600
@@ -36,6 +35,8 @@ FocusScope {
 	addressLine.forceActiveFocus()
 	addressLine.selectAll()
     }
+
+    QMozContext { id: qMozContext }
     
     Connections {
 	target: viewport
@@ -403,7 +404,7 @@ FocusScope {
 	    	onClicked: { 
 		    contextMenu.close()
 		    viewport.focus = true
-		    setClipboard(contextMenu.url)
+		    qMozContext.setClipboard(contextMenu.url)
 		}
 	    }
 	    MenuItem {
@@ -412,7 +413,7 @@ FocusScope {
 	    	onClicked: { 
 		    contextMenu.close()
 		    viewport.focus = true
-		    setClipboard(contextMenu.img)
+		    qMozContext.setClipboard(contextMenu.img)
 		}
 	    }
 	}
