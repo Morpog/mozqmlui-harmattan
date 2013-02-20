@@ -74,7 +74,7 @@ QDeclarativeMozView {
 	onRecvAsyncMessage: {
 	    print("onRecvAsyncMessage: " + message + ", data:" + data);
 	    if (message == "context:info") {
-	    	contextUrl(data.aHRef, data.aSrc)
+	    	contextUrl(data.LinkHref, data.ImageSrc)
 	    }
 	}
 	onRecvSyncMessage: {
