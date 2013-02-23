@@ -10,24 +10,12 @@ FocusScope {
     property alias viewport: webViewport
 
     signal pageTitleChanged(string title)
-<<<<<<< HEAD
 
-=======
-    
-    //x: 0; y: 0
-    //width: 800; height: 600
-    
-    Component.onCompleted: {
-	createWindow(startURL)
-    }
-    
->>>>>>> b155af1dd55c04fb457cadc95b8d4be4e8706eb9
     function load(address) {
         addressLine.text = address
         viewport.child().load(address)
     }
 
-<<<<<<< HEAD
     Item {
         id: debugg
 
@@ -37,23 +25,6 @@ FocusScope {
         }
 
         property int test: viewport.enabled ? testt(1) : testt(0)
-=======
-    QMozContext { id: qMozContext }
-    
-    Connections {
-	target: viewport
-	onUrlChanged: {
-	    addressLine.text = url;
-	    addressLine.cursorPosition = 0;
-	}
-	onTitleChanged: {
-		pageTitle.text = title;
-		pageTitleChanged(title);
-	}
-	onContextUrl: {
-	    showContextMenu(url, src);
-	}
->>>>>>> b155af1dd55c04fb457cadc95b8d4be4e8706eb9
     }
 
     QmlMozContext { id: qMozContext }
@@ -332,7 +303,6 @@ FocusScope {
             navigation.visible = false
         }
     }
-<<<<<<< HEAD
 
     OverlayButton {
         id: newPage
@@ -353,52 +323,6 @@ FocusScope {
             qMozContext.newWindow()
             navigation.visible = false
         }
-=======
-    
-    Menu {
-	id: contextMenu
-	property string url: ""
-	property string img: ""
-	visualParent: pageStack
-	MenuLayout {
-	    MenuItem {
-		text: "Open link url in new tab"
-		visible: contextMenu.url.length > 0
-		onClicked: { 
-		    contextMenu.close()
-		    viewport.focus = true
-		    createWindow(contextMenu.url)
-		} 
-	    }
-	    MenuItem {
-		text: "Open image url in new tab"
-		visible: contextMenu.img.length > 0
-		onClicked: { 
-		    contextMenu.close()
-		    viewport.focus = true
-		    createWindow(contextMenu.img)
-		} 
-	    }
-	    MenuItem {
-	    	text: "Copy link url to clipboard"
-		visible: contextMenu.url.length > 0
-	    	onClicked: { 
-		    contextMenu.close()
-		    viewport.focus = true
-		    qMozContext.setClipboard(contextMenu.url)
-		}
-	    }
-	    MenuItem {
-	    	text: "Copy image url to clipboard"
-		visible: contextMenu.img.length > 0
-	    	onClicked: { 
-		    contextMenu.close()
-		    viewport.focus = true
-		    qMozContext.setClipboard(contextMenu.img)
-		}
-	    }
-	}
->>>>>>> b155af1dd55c04fb457cadc95b8d4be4e8706eb9
     }
 
     Keys.onPressed: {
