@@ -36,8 +36,8 @@ Item {
 		radius: root.height / 5
 		border.color: "black"
 		border.width: 2
-		color: root.enabled ? ((mouseArea.pressed || root.itemPressed)? "blue" : "white") : "transparent"
-		opacity: (mouseArea.pressed || root.itemPressed)? 0.3 : 0.6
+		color: root.enabled ? ((mouseArea.pressed || root.itemPressed)? "#c608b5" : "snow") : "lightgray"
+		opacity: (mouseArea.pressed || root.itemPressed)? 0.9 : 0.9
 	}
 
 	Image {

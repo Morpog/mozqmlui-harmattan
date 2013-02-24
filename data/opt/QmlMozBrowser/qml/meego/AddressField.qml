@@ -65,8 +65,8 @@ Item {
 			}
 			width: parent.width / 100 * viewport.child().loadProgress
 			radius: 10
-			color: "blue"
-			opacity: 0.3
+			color: "#c608b5"
+			opacity: 0.9
 			visible: viewport.child().loadProgress != 100
 		}
 
